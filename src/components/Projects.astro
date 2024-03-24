@@ -1,0 +1,166 @@
+---
+import GitHub from "../components/Icons/GitHub.astro";
+import ExpressJS from "../components/Icons/ExpressJs.astro";
+import Tailwind from "../components/Icons/Tailwind.astro";
+import Bootstrap from "./Icons/Bootstrap.astro";
+import Laravel from "../components/Icons/Laravel.astro";
+import AlpineJs from "../components/Icons/AlpineJs.astro";
+import Livewire from "../components/Icons/Livewire.astro";
+import Aws from "../components/Icons/Aws.astro";
+import VueJs from "./Icons/VueJs.astro";
+import ReactJs from "./Icons/ReactJs.astro";
+import Link from "../components/Icons/Link.astro";
+import Php from "../components/Icons/Php.astro";
+import LinkButton from "../components/elements/LinkButton.astro";
+import ExpressJs from "../components/Icons/ExpressJs.astro";
+
+const miClass =
+  "inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-base text-white transition bg-gray-700 dark:bg-gray-800 border border-gray-600 focus-visible:ring-sky-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black";
+
+const TAGS = {
+  LARAVEL: {
+    name: "Laravel",
+    class: miClass,
+    icon: Laravel,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: miClass,
+    icon: Tailwind,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: miClass,
+    icon: Bootstrap,
+  },
+  ALPINEJS: {
+    name: "AlpineJs",
+    class: miClass,
+    icon: AlpineJs,
+  },
+  LIVEWIRE: {
+    name: "AlpineJs",
+    class: miClass,
+    icon: Livewire,
+  },
+  AWS: {
+    name: "Amazon Web Services",
+    class: miClass,
+    icon: Aws,
+  },
+  PHP: {
+    name: "PHP",
+    class: miClass,
+    icon: Php,
+  },
+  EXPRESSJS: {
+    name: "Expres.Js",
+    class: miClass,
+    icon: ExpressJs,
+  },
+  VUEJS: {
+    name: "Vue.Js",
+    class: miClass,
+    icon: VueJs,
+  },
+  REACTJS: {
+    name: "React.Js",
+    class: miClass,
+    icon: ReactJs,
+  },
+};
+const PROJECTS = [
+  {
+    title: "CONECTA - COLUA R.L.",
+    description:
+      "Plataforma web de control interno administratico como registros de empleados, agencias, puestos, inventarios y mantenimiento informaticos, asistencia de asamblea entre otros. Desarrolado desde cero con Laravel, Tailwin CSS y Amazon Web Services.",
+    link: "https://ercolua.com.gt/",
+    image: "/projects/Conecta.jpg",
+    alt: "Detalle",
+    tags: [TAGS.LARAVEL, TAGS.TAILWIND, TAGS.AWS],
+  },
+  {
+    title: "Prueba tecnica Ministerio Publico Guatemala",
+    description:
+      "RESTful de control de fiscalias donde se pueden registrar, actualizar y eliminar. Creada desde cero con Express.js, React, Tailwind CSS y SQL Server.",
+    link: "",
+    github: "https://github.com/TheRevGt/mp.webpp",
+    image: "https://flowbite.com/docs/images/blog/image-4.jpg",
+    alt: "Detalle",
+    tags: [TAGS.EXPRESSJS, TAGS.TAILWIND, TAGS.REACTJS],
+  },
+  {
+    title: "Asamblea - COLUA R.L.",
+    description:
+      "Sistema de presentación de asamblea anual, ejelección de candidatos, plenaria y Control de asistencia. Desarrollado desde cero con Laravel, Tailwin CSS y Amazon Web Services.",
+    link: "",
+    image: "https://flowbite.com/docs/images/blog/image-4.jpg",
+    alt: "Detalle",
+    tags: [TAGS.LARAVEL, TAGS.BOOTSTRAP, TAGS.AWS, TAGS.VUEJS],
+  },
+  {
+    title: "Sistema de inventarios",
+    description:
+      "Sistema interna de control de inventario de informatica y mantenimiento de manera local. Creada desde cero con Express.js, React, Tailwind CSS y SQL Server.",
+    link: "",
+    github: "",
+    image: "https://flowbite.com/docs/images/blog/image-4.jpg",
+    alt: "Detalle",
+    tags: [TAGS.PHP],
+  },
+];
+---
+
+<div class="flex flex-wrap gap-y-8 md:gap-y-12">
+  {
+    PROJECTS.map(({ image, alt, title, description, tags, link, github }) => (
+      <article class="w-full md:w-1/2 md:max-w-lg group md:flex-row px-2 md:px-4 ">
+        <div class="rounded-2xl p-4 flex flex-col relative undefined">
+          <div class="relative h-60 flex flex-col items-center transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl mb-5 sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt={alt}
+              class="object-cover h-full rounded-t-lg w-auto md:rounded-none md:rounded-s-lgtransition duration-500 md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+          <h3 class="text-md text-sky-700/80 dark:text-sky-400 font-bold flex pt-1 text-lg md:text-2xl">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Repositorio
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Vista previa
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

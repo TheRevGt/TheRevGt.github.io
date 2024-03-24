@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/elements/Card.astro";
+import Badge from "../components/elements/Badge.astro";
+import { DevToolbarBadge } from "astro/runtime/client/dev-toolbar/ui-library/badge.js";
+import CardContent from "../components/elements/CardContent.astro";
+import Briefcase from "../components/Icons/Briefcase.astro";
+import Experience from "../components/Experience.astro";
+import Dev from "../components/Icons/Dev.astro";
+import Projects from "../components/Projects.astro";
+import ProfileCheck from "../components/Icons/ProfileCheck.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<Layout title="Portafolio | Santos Jeremías García Tzul">
+  <main class="container w-full px-5 m-auto">
+    <CardContent class="py-44 pb-24">
+      <Hero />
+    </CardContent>
+
+    <CardContent id="experiencia">
+      <h1
+        class="text-2x1 font-semibold mb-6 flex gap-x-2 items-center text-gray-800 dark:text-gray-200"
+      >
+        <Briefcase class="size-7" />
+        Experiencia Laboral
+      </h1>
+      <Experience />
+    </CardContent>
+
+    <CardContent id="proyectos">
+      <h1
+        class="text-2x1 font-semibold mb-6 flex gap-x-2 items-center text-gray-800 dark:text-gray-200"
+      >
+        <Dev class="size-7" />
+        Proyectos
+      </h1>
+      <Projects />
+    </CardContent>
+
+    <CardContent id="sobre-mi">
+      <h1
+        class="text-2x1 font-semibold mb-6 flex gap-x-2 items-center text-gray-800 dark:text-gray-200"
+      >
+        <ProfileCheck class="size-7" />
+        Sobre mí
+      </h1>
+      <AboutMe />
+    </CardContent>
+  </main>
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    // Whenever the user explicitly chooses light mode
+    localStorage.theme = "light";
+
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = "dark";
+
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem("theme");
+  </script>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXP = [
+  {
+    date: "Actualmente...",
+    title: "Desarrollador web",
+    company: "COLUA R.L.",
+    description:
+      "Desarrollador de plataforma interna de tipo ERP denominado Conecta sobre la gestión administrativa y de areas como parte de las medias de inovación.  Desarrollado con PHP en el framework Laravel, livewire, servidor AWS EC2 y almacenamiento S3",
+    link: "https://ercolua.com.gt/",
+  },
+  {
+    date: "03/03/2021 - 01/09/2021",
+    title: "Desarrollador web",
+    company: "COLUA R.L.",
+    description:
+      "Desarrollador de plataforma asamblea anual a medidad de las restrucciones de salud por pandemia COVID-19, donde se registraban, marcaban asistencia e interactuaba dentro del mismo para poder votar a los candidatos electos. Desarrollado con PHP en el framework Laravel, renderisado con vue.js 3 y con servidor AWS EC2",
+    link: "",
+  },
+  {
+    date: "02/01/2020 - 19/02/2020",
+    title: "Practica universitaria",
+    company: "COLUA R.L.",
+    description:
+      "Desarrollador de sistema de unventarios de equipos de computo para control de activos de la empresa. Desarrollado con php, MySQL y servidor interno.",
+    link: "",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-400 dark:border-gray-500 m-2">
+  {
+    EXP.map((experiencie) => (
+      <li class="mb-10 m-4 ">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

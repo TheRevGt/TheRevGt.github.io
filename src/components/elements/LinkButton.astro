@@ -1,0 +1,19 @@
+---
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  role="link"
+  class="inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-base
+  text-white bg-gradient-to-r
+  from-sky-500 via-sky-600 to-sky-700
+  hover:bg-gradient-to-br
+  focus:ring-4 focus:outline-none focus:ring-sky-400
+  dark:focus:ring-sky-900
+  shadow-sm shadow-sky-400/50
+  dark:shadow-lg dark:shadow-sky-900/80
+  font-medium rounded-lg text-center me-2 mb-1"
+>
+  <slot />
+</a>
