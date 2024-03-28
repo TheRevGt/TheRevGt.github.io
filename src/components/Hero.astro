@@ -8,6 +8,8 @@ import BootstrapIcon from "./Icons/Bootstrap.astro";
 import ExpressJsIcon from "./Icons/ExpressJs.astro";
 import TailwindIcon from "./Icons/Tailwind.astro";
 import IconRev from "./Icons/IconRev.astro";
+import MailIcon from "./Icons/Mail.astro";
+import LinkedIn from "./Icons/LinkedIn.astro";
 ---
 
 <section>
@@ -30,7 +32,14 @@ import IconRev from "./Icons/IconRev.astro";
       <p class="text-base leading-tight text-[#141824] dark:text-[#199AFC]">
         jgatzul@gmail.com
       </p>
-      <Badge>Disponible para trabajar</Badge>
+      <Badge
+        href="mailto:jgatzul@gmail.com?subject=Estoy interesado en tu perfil&body="
+      >
+        <MailIcon class="size=10 mx-2" />Comunicate</Badge
+      >
+      <Badge href="https://www.linkedin.com/in/therevgt">
+        <LinkedIn class="size=10 mx-2" />Perfil</Badge
+      >
     </div>
   </div>
   <div class="flex gap-x-2 sm:pt-3 px-2">
